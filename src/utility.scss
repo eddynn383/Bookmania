@@ -1,0 +1,86 @@
+@import './variables';
+
+.flex {
+    display: flex;
+}
+
+.justify_sb {
+    justify-content: space-between;
+}
+
+.align_center {
+    align-items: center;
+}
+
+.align_end {
+    align-items: flex-end;
+}
+
+.btn {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    transition: .3s ease-in-out;
+    border-radius: 10px;
+    &--default {
+        background-color: $button-default-background;
+        border: 1px solid $button-default-border;
+        color: $white;
+        &:hover,
+        &:focus {
+            background-color: $button-default-background-hover;
+            border: 1px solid $button-default-border-hover;
+            cursor: pointer;
+        }
+    }
+    &--search {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 34px;
+        height: 34px;
+        color: $grey-color;
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        cursor: pointer;
+        &:hover {
+            background-color: $primary-color;
+            color: $white;
+        }
+    }
+    &--profile,
+    &--cart {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+        background-color: $primary-color;
+        color: $white;
+    }
+}
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin add-container {
+    max-width: $container-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+$start: 0;
+$end: 90;
+
+@for $i from $start through $end {
+  .gap-#{$i} {
+    gap: #{$i}px;
+  }
+}

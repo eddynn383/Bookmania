@@ -1,17 +1,30 @@
-import AddBooks from "./blocks/AddBooks";
-import './reset.css';
-import './style.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Header from './blocks/Header';
+import Home from './pages/Home';
+import Library from './pages/Library';
+
+import './reset.scss';
+import './app.scss';
 
 function App() {
     return (
-        <div className="App">
-            <div className="container container--flex container--center">
-                <div className="container_inner">
-                    <h1 className="text-brand">Add Book</h1>
-                    <AddBooks />
+        <Router>
+            <div className="App">
+                <div className="header-section">
+                    <Header />
+                </div>
+                <div className="content-section">
+                    <Routes>
+                        <Route path="/" element={<Home/>} />
+                        <Route path="/library" element={<Library/>} />
+                    </Routes>
+                </div>
+                <div className="footer-section">
+                    test
                 </div>
             </div>
-        </div>
+        </Router>
     );
 }
 

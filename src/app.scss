@@ -1,12 +1,29 @@
+@import './variables';
+
 body {
     font-family: 'Karla', sans-serif;
-    background-color: #242424;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+    background-color: $white;
 }
 
 h1 {
     font-weight: 700;
     font-size: 38px;
     margin: 0 0 20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.v-space-between {
+    justify-content: space-between;
+}
+
+.gap-20 {
+    gap: 20px;
 }
 
 .container {
@@ -38,16 +55,8 @@ h1 {
     color: #a9b3ff;
 }
 
-button {
-    background-color: #263393;
-    border: 1px solid #263393;
-    color: #fff;
-    padding: 15px 20px;
-    text-transform: uppercase;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1.75px;
+button:focus {
+    outline: none;
 }
 
 .error {

@@ -1,0 +1,13 @@
+@import '../variables';
+@import '../utility';
+
+.header_block {
+    background-color: $header-background;
+    &-inner {
+        @include add-container;
+        padding: $header-padding;
+    }
+    .header_right {
+        flex-direction: column;
+    }
+}

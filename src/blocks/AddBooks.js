@@ -1,8 +1,8 @@
 import React from 'react'
 import Input from "../components/Input";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../setupFirebase';
+import { addDoc } from "firebase/firestore";
+import { collectionRef } from '../setupFirebase';
 
 export default function AddBooks() {
     // Set Book
@@ -17,7 +17,7 @@ export default function AddBooks() {
     const [loading, setLoading] = useState(false);
 
     //Set error
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
     
     // On change
     const changeValue = (e) => {
@@ -33,8 +33,9 @@ export default function AddBooks() {
         e.preventDefault();
         setLoading(true);
         try {
-            const docRef = await addDoc(collection(db, "books"), {
+            const docRef = await addDoc(collectionRef, {
                 ...book,
+                pages: parseInt(book.pages),
                 publishDate: new Date(book.publishDate)
             });
             console.log("Document written with ID: ", docRef.id);
@@ -48,11 +49,13 @@ export default function AddBooks() {
     return (
         <form onSubmit={onSubmit}>
             {error && <p className="error">{error}</p>}
-            <Input name="title" dim="full" id="bookTitle" type="text" placeholder="Title" value={book.title} onChange={changeValue} />
-            <Input name="author" dim="full" id="bookAuthor" type="text" placeholder="Author" value={book.author} onChange={changeValue} />
-            <Input name="pages" dim="half" id="bookPageNo" type="number" placeholder="Page Number" value={book.pages} onChange={changeValue} />
-            <Input name="publishDate" dim="half" id="bookPublish" type="date" placeholder="Publish Date" value={book.publishDate} onChange={changeValue} />
-            <button type="submit" disabled={loading}>{loading ? "Loading..." : "Add Book"}</button>
+            <Input name="title" id="bookTitle" type="text" placeholder="Title" value={book.title} onChange={changeValue} />
+            <Input name="author" id="bookAuthor" type="text" placeholder="Author" value={book.author} onChange={changeValue} />
+            <div className="flex v-space-between gap-20">
+                <Input name="pages" id="bookPageNo" type="number" placeholder="Page Number" value={book.pages} onChange={changeValue} />
+                <Input name="publishDate" id="bookPublish" type="date" placeholder="Publish Date" value={book.publishDate} onChange={changeValue} />
+            </div>
+            <button className="btn btn--default" type="submit" disabled={loading}>{loading ? "Loading..." : "Add Book"}</button>
         </form>
     )
 }

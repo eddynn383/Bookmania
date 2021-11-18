@@ -1,0 +1,70 @@
+@import '../variables';
+
+
+/* === FORM ITEM STYLE === */
+.formItem {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* === INPUT STYLE === */
+.formItem--full {
+    width: 100%;
+}
+
+.formItem--half {
+    width: 50%;
+}
+
+.input {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 14px 20px;
+    color: rgb(168, 168, 168);
+    border: 1px solid $light-color;
+    border-radius: 6px;
+    background-color: $light-color;
+}
+
+.input[type="date"] {
+    padding: 3px 3px 3px 20px;
+    line-height: 22px;
+}
+
+input:focus {
+    outline: 1px solid #a9b3ff;
+}
+
+.input::placeholder {
+    color: rgb(168, 168, 168);
+}
+
+.input::-webkit-datetime-edit-day-field:focus,
+.input::-webkit-datetime-edit-month-field:focus,
+.input::-webkit-datetime-edit-year-field:focus {
+    background-color: transparent;
+    color: rgb(168, 168, 168);
+    border-bottom: 2px solid #a9b3ff;
+}
+
+.input::-webkit-calendar-picker-indicator { 
+    background-image: url('../assets/calendar-regular.svg');
+    width: 20px;
+    height: 20px;
+    padding: 12px 10px 10px 13px;
+    border-radius: 4px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input::-webkit-calendar-picker-indicator:hover,
+.input::-webkit-calendar-picker-indicator:focus {
+    background-color: #263393;
+    background-image: url('../assets/calendar-hover.svg');
+}
+
+.input::-webkit-calendar-picker-indicator:focus {
+    outline: none;
+}
