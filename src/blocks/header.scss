@@ -5,9 +5,15 @@
     background-color: $header-background;
     &-inner {
         @include add-container;
-        padding: $header-padding;
+        padding-top: 10px;
     }
     .header_right {
         flex-direction: column;
+        .header_group--two {
+            display: flex;
+            gap: 10px;
+            background-color: $primary-color;
+            border-radius: 21px;
+        }
     }
 }

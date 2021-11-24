@@ -2,69 +2,92 @@
 
 
 /* === FORM ITEM STYLE === */
-.formItem {
+.form-item {
     width: 100%;
+    position: relative;
     margin-bottom: 20px;
+    &--full {
+        width: 100%;
+    }
+    &--half {
+        width: 50%;
+    }
+    label:not(:empty) {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        background-color: $white;
+        border-radius: 11px;
+    }
+    .input {
+        font-family: 'Karla', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 14px 30px;
+        color: $dark-color;
+        border: 1px solid $grey-color;
+        border-radius: 26px;
+        background-color: $white;
+        &--cover {
+            padding: 10px 10px;
+        }
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+        &[type="date"] {
+            padding: 3px 3px 3px 30px;
+            line-height: 22px;
+        }
+        &::placeholder,
+        &:invalid::-webkit-datetime-edit,
+        &[type="date"][value=""] {
+            color: #dddddd;
+        }
+        &::-webkit-datetime-edit-day-field:focus,
+        &::-webkit-datetime-edit-month-field:focus,
+        &::-webkit-datetime-edit-year-field:focus {
+            background-color: transparent;
+            color: $dark-color;
+            border-bottom: 2px solid #a9b3ff;
+        }
+        &::-webkit-calendar-picker-indicator { 
+            background-image: url('../assets/calendar-regular.svg');
+            width: 20px;
+            height: 20px;
+            padding: 12px 10px 10px 13px;
+            border-radius: 50%;
+            line-height: 1;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        &::-webkit-calendar-picker-indicator:hover,
+        &::-webkit-calendar-picker-indicator:focus {
+            background-color: $primary-color;
+            background-image: url('../assets/calendar-hover.svg');
+        }
+
+        &::-webkit-calendar-picker-indicator:focus {
+            outline: none;
+        }
+        &::-webkit-file-upload-button {
+            border: 0;
+            background-color: $primary-color;
+            color: $white;
+            border-radius: 20px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        &:hover::-webkit-file-upload-button,
+        &:focus::-webkit-file-upload-button {
+            background-color: #0e65b1;
+            cursor: pointer;
+        }
+    }
 }
 
-/* === INPUT STYLE === */
-.formItem--full {
-    width: 100%;
-}
-
-.formItem--half {
-    width: 50%;
-}
-
-.input {
-    font-family: 'Karla', sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 14px 20px;
-    color: rgb(168, 168, 168);
-    border: 1px solid $light-color;
-    border-radius: 6px;
-    background-color: $light-color;
-}
-
-.input[type="date"] {
-    padding: 3px 3px 3px 20px;
-    line-height: 22px;
-}
-
-input:focus {
-    outline: 1px solid #a9b3ff;
-}
-
-.input::placeholder {
-    color: rgb(168, 168, 168);
-}
-
-.input::-webkit-datetime-edit-day-field:focus,
-.input::-webkit-datetime-edit-month-field:focus,
-.input::-webkit-datetime-edit-year-field:focus {
-    background-color: transparent;
-    color: rgb(168, 168, 168);
-    border-bottom: 2px solid #a9b3ff;
-}
-
-.input::-webkit-calendar-picker-indicator { 
-    background-image: url('../assets/calendar-regular.svg');
-    width: 20px;
-    height: 20px;
-    padding: 12px 10px 10px 13px;
-    border-radius: 4px;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
-}
-
-.input::-webkit-calendar-picker-indicator:hover,
-.input::-webkit-calendar-picker-indicator:focus {
-    background-color: #263393;
-    background-image: url('../assets/calendar-hover.svg');
-}
-
-.input::-webkit-calendar-picker-indicator:focus {
-    outline: none;
-}

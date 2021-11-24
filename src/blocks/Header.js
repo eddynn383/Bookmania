@@ -16,9 +16,13 @@ export default function Header() {
                 </div>
                 <div className="header_right flex align_end gap-20">
                     <div className="header_right-top flex gap-10">
-                        <Search />
-                        <Profile />
-                        <Cart />
+                        <div className="header_group header_group--one">
+                            <Search />
+                        </div>
+                        <div className="header_group header_group--two">
+                            <Profile />
+                            <Cart />
+                        </div>
                     </div>
                     <div className="header_right-bottom">
                         <Nav />
