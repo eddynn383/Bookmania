@@ -6,6 +6,7 @@ import './card.scss'
 
 export default function Card(opts) {
     const metatags = opts.metatags;
+    console.log(opts)
 
     return (
         <div className={"card-item card-item--" + opts.type}>
@@ -20,6 +21,9 @@ export default function Card(opts) {
                     <div className="card-item_subtitle">
                         <span>{opts.subtitle}</span>
                     </div>
+                    <div className="card-item_description">
+                        <span>{opts.description}</span>
+                    </div>
                     <div className="card-item_metatags">
                         {
                             metatags.map((item, idx) => {
@@ -32,7 +36,7 @@ export default function Card(opts) {
                         }
                     </div>
                 </div>
-                <button type="submit"><FontAwesomeIcon icon={faChevronRight}/></button>
+                <button type="submit" className="card-item_button"><FontAwesomeIcon icon={faChevronRight}/></button>
             </div>
         </div>
     )

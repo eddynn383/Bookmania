@@ -1,0 +1,82 @@
+@import '../components/input.scss';
+@import '../variables';
+
+.input--upload {
+    position: relative;
+    width: calc(50% - 10px);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 2px dashed #c6c6c6;
+    background-color: rgba(198, 198, 198, 0.1);
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    &:hover,
+    &.dragover {
+        border-color: $button-default-background;
+        background-color: rgba(74, 128, 239, 0.1);
+    }
+    .upload-icon {
+        width: 100px;
+    }
+    .upload-text {
+        color: $grey-color;
+        text-align: center;
+        line-height: 1.2;
+    }
+    .upload-input {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .upload-image {
+        display: none;
+        border-radius: 10px;
+    }
+    &.loadedFile .upload-image {
+        display: block;
+    }
+    .upload-progress-container {
+        display: none;
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        position: relative;
+        overflow: hidden;
+    }
+    &.preloadFile .upload-progress-container {
+        display: block;
+    }
+    &.loadedFile .upload-progress-container {
+        display: none;
+    }
+    .upload-progress-container_value {
+        font-size: 0;
+    }
+    .upload-progress-container_bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: $primary-color;
+        transition: width .3s ease-in-out;
+    }
+    &.preloadFile .upload-icon,
+    &.preloadFile .upload-text,
+    &.preloadFile .upload-input,
+    &.loadedFile .upload-icon,
+    &.loadedFile .upload-text,
+    &.loadedFile .upload-input  {
+        display: none;
+    }
+}

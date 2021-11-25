@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getDocs } from "firebase/firestore";
 import { collectionRef } from '../setupFirebase';
 import Card from '../components/Card';
@@ -29,7 +29,7 @@ export default function GetBooks() {
         <div className="card-items flex wrap gap-20">
             {
                 books.map((book, idx) => {
-                    return <Card type="horizontal" key={idx} title={book.title} subtitle={book.author} cover={book.url} metatags={book.metatags}/>
+                    return <Card type="horizontal" key={idx} title={book.title} subtitle={book.author} description={book.shortDesc} cover={book.cover} metatags={book.metatags}/>
                 })
             }
         </div>

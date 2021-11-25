@@ -32,12 +32,12 @@
         border: 1px solid $grey-color;
         border-radius: 26px;
         background-color: $white;
-        &--cover {
-            padding: 10px 10px;
+        &--description {
+            width: 100%;
         }
         &:focus {
             outline: none;
-            border-color: $primary-color;
+            border-color: $button-default-background;
         }
         &[type="date"] {
             padding: 3px 3px 3px 30px;
@@ -68,7 +68,7 @@
 
         &::-webkit-calendar-picker-indicator:hover,
         &::-webkit-calendar-picker-indicator:focus {
-            background-color: $primary-color;
+            background-color: $button-default-background;
             background-image: url('../assets/calendar-hover.svg');
         }
 
@@ -77,7 +77,7 @@
         }
         &::-webkit-file-upload-button {
             border: 0;
-            background-color: $primary-color;
+            background-color: $button-default-background;
             color: $white;
             border-radius: 20px;
             padding: 5px;
@@ -85,7 +85,7 @@
         }
         &:hover::-webkit-file-upload-button,
         &:focus::-webkit-file-upload-button {
-            background-color: #0e65b1;
+            background-color: $button-default-background-hover;
             cursor: pointer;
         }
     }
