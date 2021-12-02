@@ -1,6 +1,6 @@
 import React from 'react'
 import logoPath from '../assets/Logo.png'
-import './logo.scss'
+import './style/logo.scss'
 
 export default function Logo() {
     return (

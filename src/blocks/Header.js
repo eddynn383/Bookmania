@@ -5,14 +5,15 @@ import Search from '../components/Search';
 import Profile from './Profile';
 import Cart from './Cart';
 
-import './header.scss';
+import './style/header.scss';
 
 export default function Header() {
     return (
         <div className="header_block">
             <div className="header_block-inner flex justify_sb align_center">
                 <div className="header_left">
-                    <Logo />
+                    {/* <Logo /> */}
+                    <Nav />
                 </div>
                 <div className="header_right flex align_end gap-20">
                     <div className="header_right-top flex gap-10">
@@ -23,9 +24,6 @@ export default function Header() {
                             <Profile />
                             <Cart />
                         </div>
-                    </div>
-                    <div className="header_right-bottom">
-                        <Nav />
                     </div>
                 </div>
             </div>

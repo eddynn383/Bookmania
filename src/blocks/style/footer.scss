@@ -1,0 +1,25 @@
+@import '../../variables';
+@import '../../utility';
+
+.footer-section {
+    padding: 20px 0;
+    background-color: $secondary-color;
+    color: $white;
+}
+
+.footer_block {
+    &-inner {
+        @include add-container;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    ul {
+        @include reset-list;
+        li {
+            display: inline-block;
+            & + li {
+                margin-left: 20px;
+            }
+        }
+    }
+}

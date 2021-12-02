@@ -1,11 +1,11 @@
-@import '../variables';
-@import '../utility';
+@import '../../variables';
+@import '../../utility';
 
 .header_block {
-    background-color: $header-background;
     &-inner {
         @include add-container;
-        padding-top: 10px;
+        padding-top: 30px;
+        padding-bottom: 10px;
     }
     .header_right {
         flex-direction: column;
@@ -14,6 +14,10 @@
             gap: 10px;
             background-color: $primary-color;
             border-radius: 21px;
+            .profile-section,
+            .cart-section {
+                position: relative;
+            }
         }
     }
 }

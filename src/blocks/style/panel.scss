@@ -1,0 +1,32 @@
+@import '../../variables';
+
+.cart-section {
+    position: relative;
+}
+.panel {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $white;
+    box-shadow: $shadow;
+    &--cart,
+    &--profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+    }
+    &--absolute {
+        position: absolute;
+        width: 300px;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    &--signup {
+        padding: 100px;
+        max-width: 750px;
+        width: 100%;
+    }
+}

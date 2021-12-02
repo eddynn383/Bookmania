@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Metatag from './Metatag';
-import './card.scss'
+import './style/card.scss'
 
 export default function Card(opts) {
     const metatags = opts.metatags;

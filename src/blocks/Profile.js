@@ -1,14 +1,23 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
+import Panel from './Panel';
+import Button from '../components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import Input from './Input';
 
 
 export default function Profile() {
+    const [toggle, setToggle] = useState(false);
+    const clickHandle = (e) => {
+        e.preventDefault();
+        setToggle(!toggle);
+    }
     return (
         <div className="profile-section">
-            <button className="btn btn--profile" type="submit"><FontAwesomeIcon icon={faUser} /></button>
-            <div className="panel panel--profile"></div>
+            <Button type="button" className="profile" onClick={clickHandle}><FontAwesomeIcon icon={faUser} /></Button>
+            {
+                toggle && 
+                <Panel name="profile" />
+            }
         </div>
     )
 }

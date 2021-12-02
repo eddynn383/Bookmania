@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
 
-import './search.scss'
+import './style/search.scss'
 
 export default function Search() {
     const [loading, setLoading] = useState(false);

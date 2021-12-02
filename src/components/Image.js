@@ -1,5 +1,5 @@
 import React from 'react';
-import './image.scss'
+import './style/image.scss'
 
 export default function Image(opts) {
     return (

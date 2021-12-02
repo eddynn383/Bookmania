@@ -1,5 +1,9 @@
 @import './variables';
 
+.text-primary {
+    color: $primary-color;
+}
+
 .flex {
     display: flex;
 }
@@ -12,6 +16,10 @@
     justify-content: space-between;
 }
 
+.justify_center {
+    justify-content: center;
+}
+
 .align_center {
     align-items: center;
 }
@@ -21,12 +29,15 @@
 }
 
 .btn {
+    display: inline-block;
     padding: 15px 20px;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 1.75px;
     text-transform: uppercase;
+    text-align: center;
     transition: .3s ease-in-out;
+    text-decoration: none;
     border-radius: 25px;
     &--default {
         background-color: $button-default-background;
@@ -74,6 +85,17 @@
             background-color: #0e65b1;
         }
     }
+    &--close {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        padding: 4px 7px;
+        border: 0;
+        background-color: #252525;
+        color: #fff;
+        font-size: 14px;
+        width: 24px;
+    }
 }
 
 @mixin reset-list {
@@ -91,10 +113,16 @@
 }
 
 $start: 0;
-$end: 90;
+$end: 100;
 
 @for $i from $start through $end {
   .gap-#{$i} {
     gap: #{$i}px;
+  }
+  .w-#{$i} {
+    height: #{$i}#{"%"};
+  }
+  .h-#{$i} {
+    height: #{$i}#{"%"};
   }
 }

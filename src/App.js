@@ -1,8 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './blocks/Header';
+import Footer from './blocks/Footer';
 import Home from './pages/Home';
 import Library from './pages/Library';
+import SignUp from './pages/SignUp';
+import LogIn from './pages/LogIn';
 
 import './reset.scss';
 import './app.scss';
@@ -18,10 +21,12 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>} />
                         <Route path="/library" element={<Library/>} />
+                        <Route path="/signup" element={<SignUp/>} />
+                        <Route path="/login" element={<LogIn/>} />
                     </Routes>
                 </div>
                 <div className="footer-section">
-                    test
+                    <Footer />
                 </div>
             </div>
         </Router>

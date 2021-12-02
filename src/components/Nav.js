@@ -1,5 +1,5 @@
 import React from 'react'
-import './nav.scss'
+import './style/nav.scss'
 
 export default function Nav() {
     return (

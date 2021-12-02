@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../variables';
 
 .card-item {
     position: relative;
@@ -10,7 +10,7 @@
         background-color: $white;
         padding: 30px;
         border-radius: 30px;
-        box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.1);
         .card-item_cover {
             width: 150px;
             height: 200px;
@@ -37,14 +37,29 @@
     }
     &_metatags {
         display: flex;
-        justify-content: space-between;
         padding-top: 20px;
+        position: relative;
+        gap: 40px;
+        width: calc(100% - 70px);
         .card_metatag {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 5px;
+            & + .card_metatag {
+                position: relative;
+                &:before {
+                    content: "";
+                    width: 1px;
+                    height: 30px;
+                    position: absolute;
+                    left: -20px;
+                    transform: translateX(-50%);
+                    background-color: $light-color;
+                    display: inline-block;
+                }
+            }
             &-value {
                 color: $dark-color;
             }

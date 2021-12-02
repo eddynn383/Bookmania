@@ -6,7 +6,7 @@ body {
     font-size: 16px;
     line-height: 1;
     font-weight: 400;
-    background-color: $white;
+    background-color: #fefefe;
 }
 
 h1,
@@ -56,6 +56,10 @@ button:focus {
     color: #d74040;
 }
 
+.content-section {
+    height: calc(100vh - 162px);
+}
+
 .content-page {
     &_inner {
         @include add-container;
@@ -64,6 +68,10 @@ button:focus {
         &_inner {
             padding-top: 50px;
             padding-bottom: 50px;
+            &--medium {
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
         }
     }
 }
