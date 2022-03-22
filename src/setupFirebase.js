@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, getFirestore } from "firebase/firestore";
 
 const firebaseApp = initializeApp({
@@ -12,9 +11,9 @@ const firebaseApp = initializeApp({
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 });
 
-const auth = getAuth();
 const db = getFirestore();
-const collectionRef = collection(db, "books");
+const booksRef = collection(db, "books");
+const usersRef = collection(db, "users");
 
 export default firebaseApp;
-export { collectionRef };
+export { db, booksRef, usersRef };

@@ -7,18 +7,16 @@ import Text from '../components/Text'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faShieldAlt } from '@fortawesome/free-solid-svg-icons'
 
-export default function SignUpForm() {
+export default function LogInForm() {
     const [user, setUser] = useState({
         email: '',
         password: '',
-        repassword: '',
-        showPassword: false
     });
-
+ 
     const [inputType, setInputType] = useState('password');
     const [error, setError] = useState()
     const [loading, setLoading] = useState(false)
-    const { signup, currentUser } = useAuth();
+    const { login, currentUser } = useAuth();
     const navigate = useNavigate()
     
     const changeValue = (e) => {
@@ -35,20 +33,18 @@ export default function SignUpForm() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (user.password !== user.repassword) {
-            return setError('Those passwords didn’t match. Try again.')
-        }
 
         try {
             setError('')
             setLoading(true)
-            await signup(user.email, user.password);
+            await login(user.email, user.password);
             navigate.push('/')
         } catch (error) {
-            setError('Failed to create an account!')
+            setError('Failed to log in!')
         }
         setLoading(false)
     }
+
     return (
         <form onSubmit={onSubmit} >
             { error && <Text type="p" className="error">{ error }</Text> }
@@ -57,9 +53,6 @@ export default function SignUpForm() {
                 <FontAwesomeIcon icon={faAt} className="input_icon"></FontAwesomeIcon>
             </Input>
             <Input name="password" className="pass" id="userPassword" type={inputType} placeholder="Type password" label="Password" value={user.password} onChange={changeValue} >
-                <FontAwesomeIcon icon={faShieldAlt} className="input_icon"></FontAwesomeIcon>
-            </Input>
-            <Input name="repassword" className="pass" id="userRePassword" type={inputType} placeholder="Confirm password" label="Confirm Password" value={user.repassword} onChange={changeValue} >
                 <FontAwesomeIcon icon={faShieldAlt} className="input_icon"></FontAwesomeIcon>
             </Input>
             <Input name="showpass" className="checkbox" id="userShowPass" type="checkbox" label="show password" onClick={handleCheckBox} />

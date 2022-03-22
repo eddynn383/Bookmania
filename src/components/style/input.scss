@@ -13,21 +13,22 @@
         width: 50%;
     }
     label:not(:empty) {
+        background-color: $white;
         position: absolute;
-        top: -10px;
-        left: 20px;
+        top: -8px;
+        left: 15px;
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        padding: 5px 10px;
-        background-color: $white;
-        border-radius: 11px;
+        padding: 3px 5px;
+        border-radius: 4px;
+        letter-spacing: 0.8px;    
     }
     .input {
         font-family: 'Karla', sans-serif;
         font-size: 16px;
         line-height: 20px;
-        padding: 14px 30px;
+        padding: 14px 20px;
         color: $dark-color;
         border: 1px solid $grey-color;
         border-radius: 10px;
@@ -39,14 +40,24 @@
             outline: none;
             border-color: $button-default-background;
         }
+        &:focus + label {
+            color: $primary-color;
+        }
         &[type="date"] {
-            padding: 3px 3px 3px 30px;
+            padding: 3px 3px 3px 20px;
             line-height: 22px;
         }
         &::placeholder,
         &:invalid::-webkit-datetime-edit,
         &[type="date"][value=""] {
             color: #dddddd;
+        }
+        &:-webkit-autofill + label,
+        &:-webkit-autofill:hover + label, 
+        &:-webkit-autofill:focus + label, 
+        &:-webkit-autofill:active + label {
+            background-color: $primary-color;
+            color: $white;
         }
         &::-webkit-datetime-edit-day-field:focus,
         &::-webkit-datetime-edit-month-field:focus,
@@ -87,6 +98,78 @@
         &:focus::-webkit-file-upload-button {
             background-color: $button-default-background-hover;
             cursor: pointer;
+        }
+    }
+    .input_icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #dddddd;
+    }
+    .input_icon + .input {
+        padding: 14px 40px;
+    }
+    &.form-item--checkbox,
+    &.form-item--radiobox {
+        input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        label {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: auto;
+            left: auto;
+            user-select: none;
+            line-height: 20px;
+            padding: 0;
+            cursor: pointer;
+        }
+        label:before {
+            content: "";
+            display: inline-block;
+            vertical-align: top;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $grey-color;
+            margin-right: 8px;
+            border-radius: 4px;
+            line-height: 1;
+        }
+        label:after {
+            content: "";
+            display: none;
+            width: 10px;
+            height: 10px;
+            background: $primary-color;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            border-radius: 2px;
+        }
+    
+        input:checked+label:after {
+            display: block;
+        }
+    
+        input[type="radio"]+label:before,
+        input[type="radio"]+label:after {
+            border-radius: 100%;
+        }
+    }
+    
+    &--radiobox {
+        input+label:before,
+        input+label:after {
+            border-radius: 100%;
         }
     }
 }

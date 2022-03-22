@@ -18,7 +18,7 @@ export default function Search() {
     }
     return (
         <form className="form form--search" onSubmit={onSubmit}>
-            <Input name="search" id="booksSearch" type="text" placeholder="Search" value={input.value} onChange={changeValue} />
+            <Input name="search" className="search" id="booksSearch" type="text" placeholder="Genre, author, or book name" value={input.value} onChange={changeValue} />
             <button className="btn btn--search" type="submit" disabled={loading}><FontAwesomeIcon icon={faSearch} /></button>
         </form>
     )

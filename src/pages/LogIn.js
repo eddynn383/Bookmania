@@ -1,4 +1,6 @@
 import React from 'react'
+import LogInForm from '../blocks/LogInForm'
+import Text from '../components/Text'
 
 export default function LogIn() {
     return (
@@ -6,7 +8,8 @@ export default function LogIn() {
             <div className="content-page_inner">
                 <div className="container container--flex container--center">
                     <div className="container_inner container_inner--medium">
-                        LogIn
+                        <Text type="h2" className="text-primary">Log In</Text>
+                        <LogInForm />
                     </div>
                 </div>
             </div>

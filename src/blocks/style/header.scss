@@ -3,7 +3,6 @@
 
 .header_block {
     &-inner {
-        @include add-container;
         padding-top: 30px;
         padding-bottom: 10px;
     }

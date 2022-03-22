@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getDocs } from "firebase/firestore";
-import { collectionRef } from '../setupFirebase';
+import { booksRef } from '../setupFirebase';
 import Card from '../components/Card';
 
 export default function GetBooks() {
@@ -10,7 +10,7 @@ export default function GetBooks() {
 
     useEffect(() => {
         (async () => {
-            const docSnap = await getDocs(collectionRef);
+            const docSnap = await getDocs(booksRef);
             const booksArray = [];
 
             docSnap.forEach(item => {
@@ -19,7 +19,7 @@ export default function GetBooks() {
                     ...item.data()
                 })
             });
-            console.log(booksArray)
+            // console.log(booksArray)
             setBooks(booksArray);
         })();   
     },[])

@@ -44,7 +44,7 @@ export default function UploadFile(opts) {
 
     return (
         <div 
-            className={"input input--upload" + (opts.uploadedImgUrl !== "" ? " loadedFile" : "")} 
+            className={"input input--dragndrop" + (opts.uploadedImgUrl !== "" ? " loadedFile" : "")} 
             ref={wrapperRef}
             onDragEnter={onDragEnter}
             onDragLeave={onDragLeave}
@@ -55,7 +55,7 @@ export default function UploadFile(opts) {
                 <div className="upload-container">
                     <Image className="upload-icon" src={uploadIcon} alt="Upload Icon"/>
                     <Text className="upload-text">Drag &amp; drop your file here</Text>
-                    <Input className="upload-input" type="file" onChange={onFileDrop} />
+                    <Input className="upload" type="file" onChange={onFileDrop} />
                 </div>
             }
             {

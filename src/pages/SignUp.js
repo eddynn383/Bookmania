@@ -1,6 +1,6 @@
-import React from 'react';
-import SignUpForm from '../blocks/SignUpForm';
-import Text from '../components/Text';
+import React from 'react'
+import SignUpForm from '../blocks/SignUpForm'
+import Text from '../components/Text'
 
 export default function SignUp() {
     return (

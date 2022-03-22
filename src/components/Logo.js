@@ -1,5 +1,5 @@
 import React from 'react'
-import logoPath from '../assets/Logo.png'
+import logoPath from '../assets/BM-Logo.svg'
 import './style/logo.scss'
 
 export default function Logo() {

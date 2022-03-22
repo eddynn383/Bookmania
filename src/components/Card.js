@@ -25,15 +25,11 @@ export default function Card(opts) {
                         <span>{opts.description}</span>
                     </div>
                     <div className="card-item_metatags">
-                        {
-                            metatags.map((item, idx) => {
-                                console.log(item)
-                                console.log(idx)
-                                if (item !== null && item !== 'undefined') {
-                                    return <Metatag key={idx} label={item.name} value={item.value}/>
-                                }
+                        {/* {
+                            metatags.filter(item => item !== null).map((item, idx) => {
+                                return <Metatag key={idx} label={item.name} value={item.value}/>
                             })
-                        }
+                        } */}
                     </div>
                 </div>
                 <button type="submit" className="card-item_button"><FontAwesomeIcon icon={faChevronRight}/></button>

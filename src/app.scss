@@ -56,14 +56,43 @@ button:focus {
     color: #d74040;
 }
 
+.layout {
+    &_inner {
+        @include add-container;
+        display: flex;
+        gap: 20px;
+    }
+    &_left {
+        width: calc(100% - #{$side-width});
+    }
+    &_right {
+        width: $side-width;
+        padding: #{$container-padding} 0;
+        height: 100vh;
+        .side-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: $secondary-color;
+            border-radius: $container-radius;
+            padding: $container-padding;
+            .profile_image {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
 .content-section {
     height: calc(100vh - 162px);
 }
 
 .content-page {
-    &_inner {
-        @include add-container;
-    }
     .container {
         &_inner {
             padding-top: 50px;

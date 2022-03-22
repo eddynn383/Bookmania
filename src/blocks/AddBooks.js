@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
-import { collectionRef } from '../setupFirebase';
+import { booksRef } from '../setupFirebase';
 import Input from "../components/Input";
 import Button from '../components/Button';
 import UploadFile from './UploadFile';
@@ -43,7 +43,7 @@ export default function AddBooks() {
 
     const trimmedText = (text, limit = 0) => {
         let trimmedString = text.substr(0, limit);
-        return trimmedString = trimmedString.substr(0, Math.min(trimmedString.lastIndexOf(" ")));
+        return trimmedString = trimmedString.substr(0, Math.min(trimmedString.lastIndexOf(" "))) + "...";
     }
 
     const onFileChange = (files) => {
@@ -66,7 +66,10 @@ export default function AddBooks() {
                 case 'running':
                     console.log('Upload is running');
                     break;
-            }
+                default: 
+                    console.log('Upload is stoped');
+                    break;
+            }   
         }, (error) => {
             // Handle unsuccessful uploads
         }, () => {
@@ -103,7 +106,7 @@ export default function AddBooks() {
                 title: book.title,
                 author: book.author,
                 fullDesc: book.description, 
-                shortDesc: await trimmedText(book.description, 250) + "...",
+                shortDesc: await trimmedText(book.description, 250),
                 date: {
                     publish: new Date(book.publishDate),
                     import: today
@@ -120,7 +123,7 @@ export default function AddBooks() {
 
             console.log(newBook)
             //Add book to the collection
-            const docRef = await addDoc(collectionRef, {
+            const docRef = await addDoc(booksRef, {
                 ...newBook,
             });
             console.log("Document written with ID: ", docRef.id);
@@ -136,13 +139,13 @@ export default function AddBooks() {
     return (
         <form onSubmit={onSubmit}>
             {error && <p className="error">{error}</p>}
-            <Input name="title" id="bookTitle" type="text" placeholder="Title" value={book.title} onChange={changeValue} />
-            <Input name="author" id="bookAuthor" type="text" placeholder="Author" value={book.author} onChange={changeValue} />
+            <Input name="title" className="title" id="bookTitle" type="text" label="Title" placeholder="Book title" value={book.title} onChange={changeValue} />
+            <Input name="author" className="author" id="bookAuthor" type="text" label="Author" placeholder="Book author" value={book.author} onChange={changeValue} />
             <div className="flex v-space-between gap-20">
-                <Input name="pages" id="bookPageNo" type="number" placeholder="Pages Number" value={book.pages} onChange={changeValue} />
-                <Input name="publishDate" id="bookPublish" type="date" placeholder="Publish Date" value={book.publishDate} onChange={changeValue} />
+                <Input name="pages" className="pages" id="bookPageNo" type="number" label="Pages" placeholder="Book pages number" value={book.pages} onChange={changeValue} />
+                <Input name="publishDate" className="publish" id="bookPublish" type="date" label="Publish Date" value={book.publishDate} onChange={changeValue} />
             </div>
-            <Input id="bookDescription" name="description" rows="4" cols="80" isTextarea={true} value={book.description} onChange={changeValue}>{book.description}</Input>
+            <Input name="description" className="description" id="bookDescription" label="Description" isTextarea="true" rows="4" cols="80" value={book.description} onChange={changeValue}>{book.description}</Input>
             <UploadFile uploadedImgUrl={coverImg} uploadedImgName={book.title} onFileChange={(files) => onFileChange(files)} onDelete={onDelete} progress={progress}/>
             <Button type="submit" className="default" disabled={loading}>{loading ? "Loading..." : "Add Book"}</Button>
         </form>
